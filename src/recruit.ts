@@ -1,11 +1,11 @@
-import cfg from '../config.json'
+import cfg from '../config.json';
 
-type Coin = 1 | 2 | 5 | 10 | 20 | 50
+type Coin = 1 | 2 | 5 | 10 | 20 | 50;
 
 type RollCount = {
   rolls: number,
   rest: number
-}
+};
 
 type RollCounts = {
   1: RollCount,
@@ -14,7 +14,7 @@ type RollCounts = {
   10: RollCount,
   20: RollCount,
   50: RollCount,
-}
+};
 
 
 export function getAllRollCounts(inputData: Coin[], denominationMap = cfg.denominationMap): RollCounts {
@@ -25,13 +25,13 @@ export function getAllRollCounts(inputData: Coin[], denominationMap = cfg.denomi
     10: { rolls: 0, rest: 0 },
     20: { rolls: 0, rest: 0 },
     50: { rolls: 0, rest: 0 }
-  }
+  };
 
   return inputData.reduce((acc, cur) => {
-    const rest = acc[cur].rest + 1
-    const isRollFull = rest === denominationMap[cur]
-    acc[cur].rest = isRollFull ? 0 : rest
-    acc[cur].rolls = isRollFull ? acc[cur].rolls + 1 : acc[cur].rolls
-    return acc
-  }, initialOutput)
+    const rest = acc[cur].rest + 1;
+    const isRollFull = rest === denominationMap[cur];
+    acc[cur].rest = isRollFull ? 0 : rest;
+    acc[cur].rolls = isRollFull ? acc[cur].rolls + 1 : acc[cur].rolls;
+    return acc;
+  }, initialOutput);
 }

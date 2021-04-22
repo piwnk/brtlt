@@ -1,0 +1,21 @@
+{
+  "extends": "tslint:recommended",
+  "rules": {
+    "semicolon": [
+      true,
+      "always",
+      "ignore-interfaces"
+    ]
+  },
+  "no-console": {
+    "severity": "warning",
+    "options": [
+      "debug",
+      "info",
+      "log",
+      "time",
+      "timeEnd",
+      "trace"
+    ]
+  }
+}
