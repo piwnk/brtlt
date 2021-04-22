@@ -1,5 +1,6 @@
 import cfg from '../config.json'
 
+type Coin = 1 | 2 | 5 | 10 | 20 | 50
 
 type RollCount = {
   rolls: number,
@@ -16,7 +17,7 @@ type RollCounts = {
 }
 
 
-export function getAllRollCounts(inputData: number[], denominationMap = cfg.denominationMap): RollCounts {
+export function getAllRollCounts(inputData: Coin[], denominationMap = cfg.denominationMap): RollCounts {
   const initialOutput = {
     1: { rolls: 0, rest: 0 },
     2: { rolls: 0, rest: 0 },
